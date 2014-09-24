@@ -1,4 +1,4 @@
-// Do not put any css rules into this file.  This file is only for declaration of variables and mixins
+// Do not put any css rules into this file. This file is only for declaration of variables and mixins
 
 // Grand Old Colors
 /* basic color rules - DO NOT use these in component files, they should only be used in config sections! */
@@ -13,19 +13,25 @@ $fire-engine-red: #B5121B;
 $pumpkin: #f7771b;
 
 // Brand New Colors
-// These colors were mapped to names via www.color-blindness.com/color-name-hue.
+// These colors were mapped to names via www.color-blindness.com/color-name-hue
 $pacific-blue:      rgb(0, 160, 229);
 $bright-turquoise:  rgb(21, 214, 203);
-$light-gray:        rgb(234, 238, 241);
 $pattens-blue:      rgb(240, 245, 250);
 $alice-blue:        rgb(240, 247, 254);
 $greyish-blue:      rgb(248, 251, 253);
-$greyish-yellow:    rgb(204, 204, 200);
-$light-grey-yellow: rgb(243, 243, 242);
-$bright-grey:       rgb(88, 89, 95);
-$charcoal:          #464646;
 $light-sky-blue:    rgb(148, 215, 244);
 $bluer-lavender:    rgb(225,237,250);
+
+$bright-grey:       rgb(88, 89, 95);
+$greyish-yellow:    rgb(204, 204, 200);
+$light-grey-yellow: rgb(243, 243, 242);
+$light-gray:        rgb(234, 238, 241);
+$shadow-gray:		darken($light-gray, 7%);
+$charcoal:          #464646;
+
+//transparent variants
+$shadow-color:		rgba($shadow-gray, .7);
+
 
 // Tints & Shades of Brand Colors
 // Brand
@@ -87,7 +93,8 @@ $border-width: 1px;
 $border-canon: $border-width solid $border-color;
 $dark-border-canon: $border-width solid $border-color-dark;
 $strong-border-canon: 5px solid $color-text3;
-$shadow-canon: 1px 2px 2px 0px $border-color;
+
+$shadow-canon: 1px 2px 2px 0px $shadow-color;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

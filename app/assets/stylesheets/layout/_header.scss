@@ -109,6 +109,7 @@ $notification-token-width: $header-margin * 2;
 
             .menu {
                 border: $border-canon;
+                border-top: none;
             }
             .token {
                 float: right;
@@ -248,7 +249,8 @@ $notification-token-width: $header-margin * 2;
 
         .menu.popup_username {
             line-height: 24px;
-            right: $header-margin;
+            /* add 1 for 1px border around popup */
+            right: $header-margin - 1;
             width: $header-margin * 6;
 
             li {
@@ -258,7 +260,8 @@ $notification-token-width: $header-margin * 2;
 
         .menu.popup_notifications {
             $width: 320px;
-            margin-left: -($width - $notification-token-width / 2);
+			/* calculate the left margin. add 1 for 1px border */
+            margin-left: -( ($width - $notification-token-width / 2) +1);
             width: $width;
 
             line-height: 14px;
