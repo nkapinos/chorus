@@ -2,7 +2,7 @@ module Dashboard
   class WorkspaceActivity < DataModule
 
     def fetch_results
-      num_days = 4
+      num_days = 7
       num_workspaces = 10
       start_date = num_days.days.ago.at_beginning_of_day
 
@@ -12,6 +12,7 @@ module Dashboard
         .group(:workspace_id)
         .where('workspace_id IS NOT NULL')
         .where('created_at >= :start_date', :start_date => start_date)
+        .order('event_count desc')
         .limit(num_workspaces)
       .map(&:workspace_id)
 
@@ -34,7 +35,10 @@ module Dashboard
 
       # Put in random format for json
       res = events_by_day_workspace.map do |t, v|
-        {date_part: t.last, workspace_id: t.first, event_count: v}
+        {date_part: t.last,
+         workspace_id: t.first,
+         event_count: v,
+         rank: top_workspace_ids.find_index(t.first)}
       end
 
       res

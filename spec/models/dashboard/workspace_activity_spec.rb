@@ -12,6 +12,7 @@ describe Dashboard::WorkspaceActivity do
       elem.should have_key('event_count')
       elem.should have_key('workspace_id')
       elem.should have_key('date_part')
+      elem.should have_key('rank')
     end
   end
 end

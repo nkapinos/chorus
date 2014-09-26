@@ -24,4 +24,23 @@ describe("chorus.views.DashboardWorkspaceActivity", function() {
             });
         });
     });
+
+    describe("#render", function() {
+        beforeEach(function() {
+            window.addCompatibilityShimmedMatchers(chorus.svgHelpers.matchers);
+            this.server.lastFetch().respondJson(200, this.workspaceActivityAttrs);
+            this.view.render();
+        });
+
+        it("displays the chart", function() {
+            expect(this.view.vis.entities.chart.domElement).not.toBe(null);
+
+            var workspace_ids =  _.map(this.workspaceActivityAttrs.data, function(w) { return w.workspaceId; });
+            var num_workspaces = _.uniq(workspace_ids).length;
+
+            // Expect one area per workspace within the graph
+            this.layers = this.view.$(".layer");
+            expect(this.layers.length).toBe(num_workspaces);
+        });
+    });
 });
