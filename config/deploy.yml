@@ -55,3 +55,10 @@ vnext:
   host: chorus-vnext
   install_path: ~/chorus
   postgres_build: 2
+  
+branch:
+  host: qabranch.alpinenow.local
+  install_path: /usr/local/chorus
+  postgres_build: 2
+  kill_workers: true
+  kill_alpine: true
